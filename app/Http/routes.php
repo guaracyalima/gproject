@@ -22,12 +22,20 @@ Route::post('oauth/access_token', function (){
 Route::group(['middleware' => 'oauth', 'uses'], function (){
 
     Route::resource('client', 'ClientController', ['except' => ['create', 'edit']]);
+
+//    Route::group(['middleware' => 'CheckProjectOwner'], function (){
+//        Route::resource('project', 'ProjectController', ['except' => ['create', 'edit']]);
+//    });
+
     Route::resource('project', 'ProjectController', ['except' => ['create', 'edit']]);
+
     Route::group(['prefix' => 'project'], function (){
         Route::get('{id}/note', 'ProjectNotesController@index');
         Route::post('{id}/note', 'ProjectNotesController@store');
         Route::put('{id}/note/{noteId}', 'ProjectNotesController@update');
         Route::delete('{id}/note/{noteId}', 'ProjectNotesController@destroy');
+
+        Route::post('{id}/file', 'ProjectFilesController@store');
     });
 
 //    Route::get('client', ['uses' => 'ClientController@index']);
