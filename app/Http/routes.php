@@ -12,7 +12,7 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('app');
 });
 
 Route::post('oauth/access_token', function (){
@@ -28,7 +28,6 @@ Route::group(['middleware' => 'oauth', 'uses'], function (){
 //    });
 
     Route::resource('project', 'ProjectController', ['except' => ['create', 'edit']]);
-
     Route::group(['prefix' => 'project'], function (){
         Route::get('{id}/note', 'ProjectNotesController@index');
         Route::post('{id}/note', 'ProjectNotesController@store');
