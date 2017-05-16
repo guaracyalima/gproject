@@ -22,7 +22,7 @@ class ClientController extends Controller
      */
     private $service;
 
-    /**
+    /**sdopjsdguisdjigosdjigsiojgjiwraiojskgdijoxgeajirosdv
      * ClientController constructor.
      * @param ClientRepository $repository
      * @param ClientService $service
@@ -30,6 +30,7 @@ class ClientController extends Controller
     public function __construct(ClientRepository $repository,
                                 ClientService $service)
     {
+        
         $this->repository = $repository;
         $this->service = $service;
     }
