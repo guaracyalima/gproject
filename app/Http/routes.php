@@ -16,3 +16,5 @@ Route::get('/', function () {
 });
 
 Route::get('clients', 'ClientController@index');
+Route::post('clients', 'ClientController@store');
+Route::get('clients/{id}', 'ClientController@show');

@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace CodeProject\Http\Controllers;
 
-use App\Client;
+use CodeProject\Entities\Client;
 use Illuminate\Http\Request;
 
-use App\Http\Requests;
-use App\Http\Controllers\Controller;
+use CodeProject\Http\Requests;
+use CodeProject\Http\Controllers\Controller;
 
 class ClientController extends Controller
 {
@@ -50,7 +50,7 @@ class ClientController extends Controller
      */
     public function show($id)
     {
-        //
+        return Client::find($id);
     }
 
     /**
